@@ -68,6 +68,7 @@ model = models.resnet18().cuda()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
 model.train()
+times = 0
 for batch in train_loader:
     images, labels = batch
     images, labels = images.cuda(), labels.cuda()
@@ -78,8 +79,12 @@ for batch in train_loader:
     loss = F.cross_entropy(outputs, labels)
     record_task("backward_pass", lambda: loss.backward(), batch_size=images.size(0))
     record_task("optimizer_step", lambda: optimizer.step(), batch_size=images.size(0))
+    times += 1
 
-    optimizer.zero_grad()
-    break  # 只运行一轮
+    break
+    # optimizer.zero_grad()
+    # if(time == 100):
+    #     break
+
 
 print("✅ 采样完成，特征已保存至 resnet_task_profiles.csv")
