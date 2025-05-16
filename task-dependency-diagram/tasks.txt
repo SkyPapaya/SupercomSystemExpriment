@@ -1,0 +1,2 @@
+load_tasks_from_file, 1, open|int|len
+analyze_critical_path, 1, 

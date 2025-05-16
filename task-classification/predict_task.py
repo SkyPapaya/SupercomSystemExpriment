@@ -6,7 +6,7 @@ model = joblib.load("hardware_classifier.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 
 # 2. 加载待预测特征（和训练结构一致）
-task = pd.read_csv("new_task_features.csv")  # 例如从代码分析新生成的一组任务特征
+task = pd.read_csv("task_features.csv")  # 例如从代码分析新生成的一组任务特征
 task_id = task["task_id"]
 X = task.drop(columns=["task_id", "label"], errors="ignore")
 
