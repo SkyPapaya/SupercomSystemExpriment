@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import joblib
 
 # 加载采样数据
-df = pd.read_csv("resnet_task_profiles.csv")
+df = pd.read_csv("../resnet_task_profiles.csv")
 
 # 丢弃无效数据（flops=-1）
 df = df[df['flops_estimate'] > 0]

@@ -12,7 +12,7 @@ import os
 pynvml.nvmlInit()
 handle = pynvml.nvmlDeviceGetHandleByIndex(0)
 
-CSV_PATH = "resnet_task_profiles.csv"
+CSV_PATH = "../resnet_task_profiles.csv"
 
 # 初始化 CSV 文件
 if not os.path.exists(CSV_PATH):
